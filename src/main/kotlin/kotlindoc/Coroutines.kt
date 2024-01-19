@@ -1,9 +1,24 @@
-//package kotlindoc
-//
-//fun main() = runBlocking { // this: CoroutineScope
-//    launch { // launch a new coroutine and continue
-//        delay(1000L) // non-blocking delay for 1 second (default time unit is ms)
-//        println("World!") // print after delay
-//    }
-//    println("Hello") // main coroutine continues while a previous one is delayed
-//}
+package kotlindoc
+
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    doWorld()
+    println("Done")
+}
+
+// Concurrently executes both sections
+suspend fun doWorld() = coroutineScope { // this: CoroutineScope
+    launch {
+        delay(2000L)
+        println("World 2")
+    }
+    launch {
+        delay(1000L)
+        println("World 1")
+    }
+    println("Hello")
+}
