@@ -1,7 +1,7 @@
 package functional.task5
 
 fun main() {
-    curryPolymorph<Int, Int, Int>()(::square)(::triple)
+    println(curryPolymorph<Int, Int, Int>()(::square)(::triple)(2))
 }
 
 fun square(n: Int) = n * n

@@ -1,7 +1,7 @@
 package functional.task6
 
 fun main() {
-
+    println(reverseCurryPolymorph<Int, Int, Int>()(::square)(::triple)(2))
 }
 
 fun square(n: Int) = n * n
