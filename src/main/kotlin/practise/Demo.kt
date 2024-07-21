@@ -13,7 +13,9 @@ fun main(args: Array<String>) {
 //    println(fun(): Int { return 22 }())
 //    anonymous()
 
-    println(mult(2, 3))
+//    println(mult(2, 3))
+
+    val a = 1
 }
 
 fun generate(functionName: String): (Int) -> Int =
