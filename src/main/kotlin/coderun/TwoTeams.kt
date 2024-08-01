@@ -5,15 +5,13 @@ fun main(args: Array<String>) {
     val totalSecond = readln().toInt()
     val perMember = readln().toInt()
 
-    val result = if (totalFirst >= totalSecond) {
-        "Yes"
-    } else {
-        if (totalSecond.toDouble() / perMember >= totalFirst) {
-            "No"
-        } else {
-            "Yes"
-        }
+    when {
+        totalFirst > totalSecond -> println("Yes")
+        totalFirst == 0 && totalSecond == 0 -> println("No")
+        totalFirst == totalSecond && perMember != 1 -> println("Yes")
+        totalFirst == totalSecond && perMember == 1 -> println("No")
+        totalSecond / perMember >= totalFirst -> println("No")
+        totalSecond / perMember == totalFirst - 1 && totalSecond % perMember != 0 -> println("No")
+        totalSecond / perMember < totalFirst -> println("Yes")
     }
-
-    println(result)
 }

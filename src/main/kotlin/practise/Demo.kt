@@ -1,5 +1,6 @@
 package practise
 
+import java.util.*
 import kotlin.math.max
 
 fun main(args: Array<String>) {
@@ -15,7 +16,18 @@ fun main(args: Array<String>) {
 
 //    println(mult(2, 3))
 
-    val a = 1
+    // Create a mutable list to store the input numbers
+    val numberList = mutableListOf<Int>()
+
+    // Use a scanner to read the user input
+    val scanner = Scanner(System.`in`)
+
+    // TODO: Extract the integers from the input and add them to the mutable list
+    numberList.addAll(scanner.nextLine().split(" ").map { it.toInt() })
+
+    numberList.sort()
+
+    println(numberList.joinToString(" "))
 }
 
 fun generate(functionName: String): (Int) -> Int =
